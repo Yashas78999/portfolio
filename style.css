@@ -1,0 +1,228 @@
+/* Basic reset and layout */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --accent: #ff4d4d;
+  --bg: #ffffff;
+  --muted: #666;
+  --maxw: 1100px;
+}
+
+/* Page structure */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* Header / Navbar */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.95);
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #111;
+  text-decoration: none;
+}
+
+.nav {
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background: #f7f7f7;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+/* Add some top spacing so fixed header doesn't cover section headings */
+.section { padding: 100px 0 60px; scroll-margin-top: 90px; }
+
+/* HERO */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: center;
+  min-height: calc(100vh - 90px);
+}
+
+.hero-text h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.name { color: var(--accent); }
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Hero placeholder image (replace with <img> if you add real photo) */
+.hero-placeholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg,#ddd,#bbb);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#666;
+  font-weight:600;
+  border-radius:8px;
+}
+
+/* Sections */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.about p { color: var(--muted); line-height:1.6; }
+
+/* Skills */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+  gap: 14px;
+  margin-top: 1rem;
+}
+
+.skill-card {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #f0f0f0;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.project-links a {
+  display:inline-block;
+  margin-right: 10px;
+  color: var(--accent);
+  text-decoration:none;
+}
+
+/* Contact form */
+.contact-form {
+  margin-top: 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-width:800px;
+}
+
+.form-row {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border:1px solid #ddd;
+  font-size: 0.95rem;
+  width:100%;
+}
+
+.note { color: var(--muted); margin-top:8px; font-size:0.9rem; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #eee;
+  padding: 18px 0;
+  margin-top: 40px;
+  text-align:center;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+  .hero-placeholder { height: 240px; }
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; flex-direction: column; gap: 0; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+  .nav-toggle { display: inline-block; }
+
+  .nav.open .nav-links { display: flex; }
+  .nav-links a { padding: 10px 14px; }
+  .site-header { padding-bottom: 6px; }
+  .section { padding-top: 110px; }
+}
